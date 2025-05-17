@@ -9,14 +9,15 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarTrigger,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { Settings, Calendar, Droplet, CloudSun } from "lucide-react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
 
 export function AppSidebar() {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const { state } = useSidebar();
+  const isExpanded = state === "expanded";
 
   return (
     <Sidebar className={isExpanded ? "w-[260px]" : "w-[72px]"}>
@@ -38,7 +39,7 @@ export function AppSidebar() {
           </div>
           {isExpanded && <span className="text-lg">Garden Buddy</span>}
         </Link>
-        <SidebarTrigger onClick={() => setIsExpanded(!isExpanded)} />
+        <SidebarTrigger />
       </SidebarHeader>
       <Separator />
       <SidebarContent className="p-2">
