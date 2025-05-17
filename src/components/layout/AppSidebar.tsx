@@ -19,7 +19,7 @@ export function AppSidebar() {
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
-    <Sidebar defaultWidth="260px" collapsedWidth="72px" expanded={isExpanded}>
+    <Sidebar className={isExpanded ? "w-[260px]" : "w-[72px]"}>
       <SidebarHeader className="py-5 px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 text-garden-leaf font-semibold">
           <div className="bg-garden-leaf text-white p-1 rounded">

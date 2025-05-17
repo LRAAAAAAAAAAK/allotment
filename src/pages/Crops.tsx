@@ -1,4 +1,3 @@
-
 import { AppLayout } from "@/components/layout/AppLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -118,12 +117,7 @@ const Crops = () => {
                       <div className="w-full flex flex-col gap-1">
                         <Progress 
                           value={crop.progress} 
-                          className="h-2" 
-                          indicatorClassName={`
-                            ${crop.progress > 75 ? 'bg-garden-leaf' : ''}
-                            ${crop.progress > 25 && crop.progress <= 75 ? 'bg-garden-carrot' : ''}
-                            ${crop.progress <= 25 ? 'bg-garden-tomato' : ''}
-                          `}
+                          className={`h-2 ${crop.progress > 75 ? 'bg-secondary [&>div]:bg-garden-leaf' : crop.progress > 25 ? 'bg-secondary [&>div]:bg-garden-carrot' : 'bg-secondary [&>div]:bg-garden-tomato'}`}
                         />
                         <span className="text-xs text-muted-foreground">{crop.progress}% - {crop.daysLeft} days left</span>
                       </div>

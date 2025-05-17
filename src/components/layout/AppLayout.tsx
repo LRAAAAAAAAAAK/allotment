@@ -17,7 +17,7 @@ export function AppLayout({ children }: AppLayoutProps) {
         <AppHeader />
         <div className="flex-1 flex overflow-hidden">
           {!isMobile && <AppSidebar />}
-          <main className="flex-1 overflow-y-auto p-4">
+          <main className="flex-1 overflow-y-auto p-4 bg-background">
             {children}
           </main>
         </div>

@@ -26,12 +26,13 @@ export function CropsWidget() {
                 <span>{crop.name}</span>
                 <span className="text-muted-foreground">{crop.daysToHarvest} days left</span>
               </div>
-              <Progress value={crop.progress} className="h-2" 
-                indicatorClassName={`
-                  ${crop.progress > 75 ? 'bg-garden-leaf' : ''}
-                  ${crop.progress > 25 && crop.progress <= 75 ? 'bg-garden-carrot' : ''}
-                  ${crop.progress <= 25 ? 'bg-garden-tomato' : ''}
-                `}
+              <Progress 
+                value={crop.progress} 
+                className={`h-2 ${
+                  crop.progress > 75 ? 'bg-secondary [&>div]:bg-garden-leaf' : 
+                  crop.progress > 25 ? 'bg-secondary [&>div]:bg-garden-carrot' : 
+                  'bg-secondary [&>div]:bg-garden-tomato'
+                }`}
               />
             </div>
           ))}
