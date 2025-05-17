@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,21 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Garden theme colors
+				garden: {
+					'leaf': '#4CAF50',     // Primary green
+					'leaf-dark': '#388E3C', // Dark green
+					'leaf-light': '#81C784', // Light green
+					'soil': '#795548',     // Brown
+					'soil-light': '#A1887F', // Light brown
+					'soil-dark': '#5D4037', // Dark brown
+					'sky': '#90CAF9',      // Light blue
+					'water': '#2196F3',    // Blue
+					'sun': '#FFC107',      // Yellow/gold
+					'tomato': '#F44336',   // Red/tomato
+					'carrot': '#FF9800',   // Orange/carrot
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -69,28 +84,40 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
+				"accordion-down": {
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
+				},
+				"accordion-up": {
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+				"fade-in": {
+					"0%": {
+						opacity: "0",
+						transform: "translateY(10px)"
 					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
+					"100%": {
+						opacity: "1",
+						transform: "translateY(0)"
 					}
 				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+				"grow": {
+					"0%": {
+						transform: "scale(0.95)"
 					},
-					to: {
-						height: '0'
+					"100%": {
+						transform: "scale(1)"
 					}
-				}
+				},
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
-		}
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+				"fade-in": "fade-in 0.5s ease-out",
+				"grow": "grow 0.3s ease-out",
+			},
+		},
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
